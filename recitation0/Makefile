@@ -13,6 +13,9 @@ test:
 	gcc r0.c test_r0.c -lcriterion
 	./a.out --verbose
 
+ro:
+	gcc ./r0.c -o $(OUTBIN)
+
 memcheck: 
 	gcc -g valgrind.c -o $(OUTBIN)
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./$(OUTBIN)
