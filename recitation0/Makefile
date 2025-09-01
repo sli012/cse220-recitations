@@ -10,6 +10,8 @@ build:
 	gcc ./r0.c -o $(OUTBIN)
 
 # This step will do nothing when the file "ro" is up to date
+# This will not work right now as main is not defined in r0.c
+# It is this way because Criterion defines main when you link it. As shown in make test.
 ro:
 	gcc ./r0.c -o $(OUTBIN)
 
