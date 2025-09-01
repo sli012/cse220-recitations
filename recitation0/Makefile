@@ -1,5 +1,6 @@
 OUTBIN  = r0
 
+# PHONY tells make that these steps do not produce any files, Make will always run these steps.
 .PHONY: clean build debug memcheck
 
 clean:
@@ -8,7 +9,7 @@ clean:
 build:
 	gcc ./r0.c -o $(OUTBIN)
 
-
+# This step will do nothing when the file "ro" is up to date
 ro:
 	gcc ./r0.c -o $(OUTBIN)
 
