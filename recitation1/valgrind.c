@@ -46,6 +46,8 @@ int main()
     printf("Sum: %d\n", sum); 
 
     // 5. Invalid free, this is trying to free a[1]
+    // Correct: free(arr)
     free(arr + 1);
+    
     return 0;
 }
