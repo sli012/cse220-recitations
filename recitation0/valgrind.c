@@ -27,7 +27,8 @@ int main()
     int *arr = malloc(5 * sizeof(int)); 
     int sum = 0;
 
-    // 2. Out of bound write
+    // 2. Out of bound write (Buffer overflow/overrun)
+    // This may not crash this program but you will learn about the consequences in later lectures.
     arr[5] = 10; 
 
     // 3. Out of bound read
