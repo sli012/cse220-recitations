@@ -2,8 +2,25 @@
 #include <stdio.h>
 #include "r0.h"
 
+// Fills a page of memory with garbage
+int pollute() {
+    size_t size = 4096;
+
+    char *p = malloc(size);
+
+    if (!p) return 1;
+
+    memset(p, 0xAA, size);
+
+    free(p);
+
+    return 0;
+}
+
 int main()
 {
+    // This simulates other processes in the system allocating and freeing memory.
+    pollute();
 
     // 1. allocated but never freed
     int *arr = malloc(5 * sizeof(int)); 
@@ -22,8 +39,7 @@ int main()
         sum += arr[i];
     }
 
-    // Notice how sum is different every time this is ran?
-    // This relies on the compiler and the operating system
+    // Notice how sum is not 0?
     // Never rely on malloc'd memory to be all 0s
     printf("Sum: %d\n", sum); 
 
