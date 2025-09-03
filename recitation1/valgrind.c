@@ -33,11 +33,10 @@ int main()
     arr[5] = 10; 
 
     // 3. Out of bound read
-    // 0, 1, 2, 3, 4
+    // Valid indexes in an array of size 5 is: 0, 1, 2, 3, 4
     printf("Value: %d\n", arr[5]); 
 
     // 4. Use of uninitialized memory
-
 
     for (int i = 0; i < 5; i++)
     {
