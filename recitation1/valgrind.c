@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "r0.h"
 
 // Fills a page of memory with garbage
@@ -32,9 +33,11 @@ int main()
     arr[5] = 10; 
 
     // 3. Out of bound read
+    // 0, 1, 2, 3, 4
     printf("Value: %d\n", arr[5]); 
 
     // 4. Use of uninitialized memory
+
 
     for (int i = 0; i < 5; i++)
     {
@@ -42,6 +45,8 @@ int main()
     }
 
     // Notice how sum is not 0?
+    // Note: run this directly as ./r0 instead of running it with Valgrind like in make memcheck. 
+    // Valgrind creates wrappers for malloc() and free() to detect memory usage in your program and Valgrind 0s out memory.
     // Never rely on malloc'd memory to be all 0s
     printf("Sum: %d\n", sum); 
 
