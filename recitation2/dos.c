@@ -96,14 +96,14 @@ int main()
     printf("%04x\n", DOS_REPR_Of(45, 9, 1));
 
     // short
-    printf("Year from SHORT: %d\n", DOS_Year(DOS_REPR_Of(127, 15, 31)));
-    printf("Month from SHORT: %d\n", DOS_Month(DOS_REPR_Of(127, 15, 31)));
-    printf("Day from SHORT: %d\n", DOS_Day(DOS_REPR_Of(127, 15, 31)));
+    // printf("Year from SHORT: %d\n", DOS_Year(DOS_REPR_Of(127, 15, 31)));
+    // printf("Month from SHORT: %d\n", DOS_Month(DOS_REPR_Of(127, 15, 31)));
+    // printf("Day from SHORT: %d\n", DOS_Day(DOS_REPR_Of(127, 15, 31)));
 
     // string (raw bytes)
-    printf("Year from STR: %d\n", DOS_Str_Year("\xff\xff"));
-    printf("Month from STR: %d\n", DOS_Str_Month("\xff\xff"));
-    printf("Day from STR: %d\n", DOS_Str_Day("\xff\xff"));
+    printf("Year from STR: %d\n", DOS_Str_Year("\x5b\x21"));
+    printf("Month from STR: %d\n", DOS_Str_Month("\x5b\x21"));
+    printf("Day from STR: %d\n", DOS_Str_Day("\x5b\x21"));
 
     return 0;
 }

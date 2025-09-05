@@ -1,7 +1,6 @@
 .PHONY: preprocess clean
 
-hello:hello.c
-	gcc hello.c -o hello
+
 
 preprocess:
 	gcc -E hello.c > hello.i.c
@@ -9,6 +8,10 @@ preprocess:
 clean:
 	rm -f dos hello bitwise
 
+hello:hello.c
+	gcc hello.c -o hello
+	./hello
+	
 dos:dos.c
 	gcc dos.c -o dos
 	./dos
@@ -16,4 +19,3 @@ dos:dos.c
 bitwise:bitwise.c
 	gcc bitwise.c -o bitwise
 	./bitwise
-
