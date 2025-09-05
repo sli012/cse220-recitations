@@ -41,7 +41,7 @@ unsigned char DOS_Str_Year(const unsigned char *repr)
     // 11111100...0
 
     // repr[0] is first 8 bits
-    printf("%02x\n", repr[0]);
+    // printf("%02x\n", repr[0]);
 
     // first hex digit
     // printf("%02x\n", repr[0] & 0xF0);
@@ -56,6 +56,7 @@ unsigned char DOS_Str_Month(const unsigned char *repr)
 {
     // 0...111100000
 
+    // Reading the month is a bit tricky because the bits overlap 2 bytes
     // bits [8-5] overlaps repr[0] and repr[1]
 
     // from repr[0]
@@ -89,11 +90,11 @@ unsigned char DOS_Str_Day(const unsigned char *repr)
 
 int main()
 {
-    printf("%04x\n", DOS_REPR_Of(45, 9, 1));
+    printf("%04x\n", DOS_REPR_Of(127, 15, 31));
     // short
-    // printf("%d\n", DOS_Year(DOS_REPR_Of(100, 2, 5)));
-    // printf("%d\n", DOS_Month(DOS_REPR_Of(100, 2, 5)));
-    // printf("%d\n", DOS_Day(DOS_REPR_Of(100, 2, 5)));
+    printf("Year from SHORT: %d\n", DOS_Year(DOS_REPR_Of(127, 15, 31)));
+    printf("Month from SHORT: %d\n", DOS_Month(DOS_REPR_Of(127, 15, 31)));
+    printf("Day from SHORT: %d\n", DOS_Day(DOS_REPR_Of(127, 15, 31)));
 
     // string
     printf("Year from STR: %d\n", DOS_Str_Year("\xff\xff"));
