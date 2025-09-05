@@ -93,6 +93,7 @@ unsigned char DOS_Str_Day(const unsigned char *repr)
 
 int main()
 {
+    // MS-DOS date representation of 9/1/2025
     printf("%04x\n", DOS_REPR_Of(45, 9, 1));
 
     // short
