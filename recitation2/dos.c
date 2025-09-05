@@ -17,6 +17,8 @@ unsigned short DOS_REPR_Of(unsigned char year, unsigned char month, unsigned cha
     return result;
 }
 
+// Working with shorts is easier than raw bytes because the bits are packed into a single contiguous object (short in this example).
+// With raw bytes, you have to manually handle bit positions that can span multiple bytes.
 unsigned char DOS_Year(unsigned short repr)
 {
     // 11111100...0
