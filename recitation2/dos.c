@@ -21,8 +21,9 @@ unsigned short DOS_REPR_Of(unsigned char year, unsigned char month, unsigned cha
 // With raw bytes, you have to manually handle bit positions that can span multiple bytes.
 unsigned char DOS_Year(unsigned short repr)
 {
-    // 11111100...0
-    return (repr & 0xFC00) >> 9;
+    // I want the upper 7 bits
+    // 111111100...0
+    return (repr & 0xFE00) >> 9;
 }
 
 unsigned char DOS_Month(unsigned short repr)
@@ -92,7 +93,8 @@ unsigned char DOS_Str_Day(const unsigned char *repr)
 
 int main()
 {
-    printf("%04x\n", DOS_REPR_Of(127, 15, 31));
+    printf("%04x\n", DOS_REPR_Of(45, 9, 1));
+
     // short
     printf("Year from SHORT: %d\n", DOS_Year(DOS_REPR_Of(127, 15, 31)));
     printf("Month from SHORT: %d\n", DOS_Month(DOS_REPR_Of(127, 15, 31)));
