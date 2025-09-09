@@ -16,7 +16,7 @@ int main(void) {
     // Since b is unsigned, zeroes are shifted in
     // 11110000 >> 1 -> 01111000 which is 0x78
 
-    // This is why unsigned data types are preferred in binary representation. The sign bit extension from signed data types can mess things up!
+    // This is why unsigned data types are preferred when doing bit manipulation. The sign bit extension from signed data types can mess things up!
 
     printf("a >> 1  = %02x (%d)\n", (unsigned char)(a >> 1), a >> 1);
     printf("b >> 1  = %02x (%u)\n", (unsigned char)(b >> 1), b >> 1);
