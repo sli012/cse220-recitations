@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-unsigned int array_len(int arr[5]) // This will decay to int*
+unsigned int array_len(int arr[5]) // arr will decay to int*
 {
     // Why does this return 2?
     return sizeof(arr) / sizeof(arr[0]);

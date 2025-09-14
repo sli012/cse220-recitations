@@ -12,6 +12,9 @@ array: array.c
 
 string: string.c
 	$(call RUN_AND_CLEAN,$<)
+
+extra: extra.c
+	$(call RUN_AND_CLEAN,$<)
 	
 header_demo: header_demo.c
 	$(call RUN_AND_CLEAN,$<)
