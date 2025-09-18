@@ -7,6 +7,17 @@ int main(int argc, char const *argv[])
 
     // Printing all bits of C by performing a right shift and masking the rightmost bit
     // We need to multiply by 8 here because sizeof(c) is in bytes not bits
+
+    // 10111111 & 1 == 1
+    // 01011111 & 1 == 1
+    // 00101111 & 1 == 1
+    // 00010111 & 1 == 1
+    // 00001011 & 1 == 1
+    // 00000101 & 1 == 1
+    // 00000101 & 1 == 1
+    // 00000010 & 1 == 0
+    // 00000001 & 1 == 1
+
     for (int i = 0; i < sizeof(c) * 8; i++)
         printf("%d\n", (c >> i) & 0b1);
 
