@@ -6,3 +6,6 @@ endef
 
 main: main.c
 	gcc main.c -o main_demo
+
+string: string.c
+	$(call RUN_AND_CLEAN,$<)
