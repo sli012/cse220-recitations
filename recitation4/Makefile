@@ -9,3 +9,6 @@ main: main.c
 
 string: string.c
 	$(call RUN_AND_CLEAN,$<)
+
+examples: string_examples.c
+	$(call RUN_AND_CLEAN,$<)
