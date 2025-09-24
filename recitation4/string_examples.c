@@ -47,5 +47,15 @@ int main()
     buffer[19] = '\0'; // null terminate manually
     printf("[6] Buffer after memset: %s\n", buffer);
 
+
+    // 7. Buffer Overrun
+    char currentbuffer[5] = "aaaa\0";
+    char nextbuffer[5] = "bbbb\0";
+
+    // Removing the null terminator will overrun into the next buffer
+    // buffer[4] = 'c';
+    
+
+    printf("[6] Buffer after memset: %s\n", currentbuffer);
     return 0;
 }
