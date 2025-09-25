@@ -31,8 +31,17 @@ int main()
     else
         printf("[4] Substring not found\n");
 
+    
+    printf("L is at address: %p\n", &text[14]);
+    printf("strstr ptr %p\n", ptr);
+    
+
     /* 5. Tokenizing (splitting a string) */
     char str[] = "apple,banana,pear";
+
+    printf("Before strtok: %s\n", str);
+    printf("Before strtok: %c\n", str[5]);
+
     char *token = strtok(str, ",");
     printf("[5] Tokens:\n");
     while (token != NULL)
@@ -40,6 +49,9 @@ int main()
         printf("    %s\n", token);
         token = strtok(NULL, ",");
     }
+
+    printf("After strtok: %s\n", str);
+    printf("After strtok: %d\n", str[5]);
 
     /* 6. Memory operations */
     char buffer[20];
@@ -53,9 +65,9 @@ int main()
     char nextbuffer[5] = "bbbb\0";
 
     // Removing the null terminator will overrun into the next buffer
-    // buffer[4] = 'c';
+    currentbuffer[4] = 'c';
     
 
-    printf("[6] Buffer after memset: %s\n", currentbuffer);
+    printf("Overrun: %s\n", currentbuffer);
     return 0;
 }
