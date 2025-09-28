@@ -7,5 +7,12 @@ int main(int argc, char const *argv[])
     // When you *ptr you "deference" the pointer and read the value at the address
     printf("The value at address %p is %d", p, *p);
 
+    int nums = {1, 2, 3, 4, 5};
+
+    int *ptr = &nums;
+
+    printf("Post Increment: %d\n", *ptr++);
+    printf("Pre Increment: %d\n", *++ptr); // What is the output of this?
+
     return 0;
 }
