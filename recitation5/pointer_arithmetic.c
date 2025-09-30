@@ -20,7 +20,10 @@ int main(int argc, char const *argv[])
     // This means a pointer to a pointer that points to an integer
     // int **p2d = &arr2d;
 
-    printf("%p == %p\n", *(arr2d + 0) + 5, &arr2d[0][5]);
+    // another overrun example
+    printf("Overrun Ex: %p == %p\n", *(arr2d + 0) + 5, &arr2d[0][5]);
+    printf("Overrun Ex: %p == %p\n", *(arr2d + 1) + 0, &arr2d[1][0]);
+
     printf("%p == %p\n", *(arr2d + 3) + 2, &arr2d[3][2]);
     printf("%p == %p\n", *(arr2d + 2) + 1, &arr2d[2][1]);
 
