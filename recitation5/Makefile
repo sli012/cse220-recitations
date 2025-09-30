@@ -13,3 +13,6 @@ string: pointer_strings.c
 
 op: pointer_operators.c
 	$(call RUN_AND_CLEAN,$<)
+
+swap: pointer_byref.c
+	$(call RUN_AND_CLEAN,$<)
