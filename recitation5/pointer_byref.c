@@ -2,7 +2,7 @@
 
 void swap(int x, int y)
 {
-    // Value is copied, so modifying it here does not affect it also the function
+    // Value is copied, so modifying it here does not affect the variables outside the function
     int temp = x;
     x = y;
     y = temp;
