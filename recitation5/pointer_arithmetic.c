@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
     int *p2d = &arr2d;
     // It is wrong to declare a pointer to a 2d array like this
     // This means a pointer to a pointer that points to an integer
-    int **p2d = &arr2d;
+    // int **p2d = &arr2d;
 
     printf("%p == %p\n", *(arr2d + 0) + 5, &arr2d[0][5]);
     printf("%p == %p\n", *(arr2d + 3) + 2, &arr2d[3][2]);
