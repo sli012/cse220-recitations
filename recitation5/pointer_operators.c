@@ -11,8 +11,10 @@ int main(int argc, char const *argv[])
 
     int *ptr = &nums;
 
-    printf("Post Increment: %d\n", *ptr++);
-    printf("Pre Increment: %d\n", *++ptr); // What is the output of this?
+    printf("Post Increment: %d\n", *ptr++); //reads value at then pointer then move forward by 1
+    printf("Pre Increment: %d\n", *++ptr); // What is the output of this? morve ptr forward by 1 then read the value
 
+    //ptr++: 1
+    //++ptr: prints 3 
     return 0;
 }
