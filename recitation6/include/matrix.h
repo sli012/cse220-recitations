@@ -1,6 +1,7 @@
 #ifndef MATRIX_FILE
 #define MATRIX_FILE
 
-int TransposeMatrix(int rows, int cols, int src[rows][cols], int dst[cols][rows]);
+void TransposeMatrix(int rows, int cols, int src[rows][cols], int dst[cols][rows]);
+void RowSumOfMatrix(int rows, int cols, int src[rows][cols], int dest[rows]);
 
 #endif

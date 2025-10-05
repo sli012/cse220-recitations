@@ -13,13 +13,6 @@ static void zero_mat(int r, int c, int A[r][c])
             A[i][j] = 0;
 }
 
-static void expect_mat_eq(int r, int c, const int G[r][c], const int W[r][c])
-{
-    for (int i = 0; i < r; ++i)
-        for (int j = 0; j < c; ++j)
-            cr_expect_eq(G[i][j], W[i][j], "mismatch at [%d][%d]: got %d, want %d", i, j, G[i][j], W[i][j]);
-}
-
 TestSuite(base_suite, .timeout = TEST_TIMEOUT);
 
 Test(base_suite, TransposeMatrix_case1, .description = "Transpose a 3x2 matrix into 2x3")
@@ -50,6 +43,29 @@ Test(base_suite, TransposeMatrix_case1, .description = "Transpose a 3x2 matrix i
         }
     }
 
+#undef ROWS
+#undef COLS
+}
+
+Test(base_suite, RowSum_case1_doc, .description = "RowSum Matrix Case 1")
+{
+#define ROWS 3
+#define COLS 4
+    int src[ROWS][COLS] = {
+        {1, 2, 3, 4},
+        {0, -1, 5, 6},
+        {7, 0, 0, 8}};
+    int dest[ROWS] = {0};
+
+    RowSumOfMatrix(ROWS, COLS, src, dest);
+
+    const int expected[ROWS] = {10, 10, 15};
+
+    for (int i = 0; i < ROWS; i++)
+    {
+        cr_assert_eq(dest[i], expected[i],
+                     "Row %d sum mismatch: got %d, expected %d", i, dest[i], expected[i]);
+    }
 #undef ROWS
 #undef COLS
 }

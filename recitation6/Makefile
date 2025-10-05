@@ -37,3 +37,6 @@ test: $(BUILD_DIR)/test_file
 
 clean:
 	rm -rf $(BUILD_DIR)
+
+file: src/file.c
+	gcc -Iinclude src/file.c -o file_demo
