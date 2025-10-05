@@ -78,10 +78,7 @@ void Censor(const char *inputFile, const char *outputFile, const char *word)
             else
             {
                 if (buf_len + 1 < MAX_LINE)
-                {
                     buffer[buf_len++] = *p;
-                    buffer[buf_len] = '\0';
-                }
                 p++;
             }
         }
