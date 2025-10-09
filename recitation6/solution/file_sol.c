@@ -90,6 +90,61 @@ void Censor(const char *inputFile, const char *outputFile, const char *word)
     fclose(out);
 }
 
+// Another way to implement with fputc. Does not need output buffer.
+
+void Censor(const char *inputFile, const char *outputFile, const char *word)
+{
+    FILE* input_obj = fopen(inputFile, "r");
+
+    if (input_obj == NULL) {
+        printf("cant open %s reading\n", inputFile);
+        return;
+    }
+
+    FILE* output_obj = fopen(outputFile, "w");
+
+    if (output_obj == NULL) {
+        printf("cant open %s for writing\n", outputFile);
+        return;
+    }
+
+    // fgets(buffer, sizeof_buffer, file* obj)
+
+    char buffer[MAX_LINE] = {0};
+
+    // returns 0 when there is nothing left
+    // returns 1 when there is something to read
+
+    while(fgets(buffer, MAX_LINE, input_obj)){
+        char *p = buffer;
+        // p -> buffer[0]
+
+        while(*p){
+            // aJie -> aXXXX
+            // Jie
+            if (strncmp(p, word, strlen(word)) == 0 &&
+                (p == buffer || !isalnum(p[-1])) &&
+                !isalnum(p[word_len]))
+            {
+                // p[0] == word[0]
+                // p[1] == word[1]
+                // p[2]
+                fputc('X', output_obj);
+                fputc('X', output_obj);
+                fputc('X', output_obj);
+                fputc('X', output_obj);
+                p += strlen(word);
+            } else {
+                fputc(*p, output_obj);
+                p++;
+            }
+        }
+    }
+        
+
+}
+
+
 int main(int argc, char *argv[])
 {
     if (argc < 3)
