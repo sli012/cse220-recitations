@@ -5,8 +5,10 @@ define RUN_AND_CLEAN
 endef
 
 
-r7: r7.c
-	$(call RUN_AND_CLEAN,$<)
+r7: 
+	gcc r7_helper.c r7.c -o r7 -Iinclude
+	./r7
+	rm r7
 
 enum: enum.c
 	$(call RUN_AND_CLEAN,$<)

@@ -1,22 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#define MAX_NAME_LEN 50
-#define MAX_STUDENTS 200
-#define GRADE_BUFFER_SZ 20
-#define CHOICE_BUFFER_SZ 10
-
-typedef struct
-{
-    char *name;
-    float grade;
-} Student;
-
-void addStudent(Student *students, int *count);
-void removeStudent(Student *students, int *count);
-void displayGrades(Student *students, int count);
-void exportToCSV(Student *students, int count);
+#include "r7.h"
 
 int main()
 {
@@ -100,44 +85,4 @@ void removeStudent(Student *students, int *count)
         printf("\nNo students to remove.\n");
         return;
     }
-}
-
-void displayGrades(Student *students, int count)
-{
-    if (count == 0)
-    {
-        printf("\nNo students yet.\n");
-        return;
-    }
-
-    printf("\n=== Grades ===\n");
-    for (int i = 0; i < count; i++)
-    {
-        printf("[%d] %s: %.2f\n", i, students[i].name, students[i].grade);
-    }
-}
-
-void exportToCSV(Student *students, int count)
-{
-    if (count == 0)
-    {
-        printf("\nNo students to export.\n");
-        return;
-    }
-
-    FILE *file = fopen("out.csv", "w");
-    if (file == NULL)
-    {
-        printf("Cannot create file.\n");
-        return;
-    }
-
-    fprintf(file, "Name,Grade\n");
-    for (int i = 0; i < count; i++)
-    {
-        fprintf(file, "%s,%.2f\n", students[i].name, students[i].grade);
-    }
-
-    fclose(file);
-    printf("Exported %d students to out.csv\n", count);
 }
