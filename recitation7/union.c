@@ -24,5 +24,7 @@ int main()
     sprintf(data.str, "Hello");
     printf("data.str = %s\n", data.str);
 
+    printf("data.i = %d\n", data.i);
+
     return 0;
 }
