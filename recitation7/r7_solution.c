@@ -98,6 +98,10 @@ void addStudent(Student *students, int *count)
     buffer[strcspn(buffer, "\n")] = 0;
 
     // Dynamically allocate memory for the name
+
+    // IMPORTANT:
+    // We don't do students[*count].name = buffer because buffer is allocated on the stack, so buffer is freed as soon as this function returns
+
     students[*count].name = malloc((strlen(buffer) + 1) * sizeof(char));
     if (students[*count].name == NULL)
     {
@@ -105,6 +109,7 @@ void addStudent(Student *students, int *count)
         return;
     }
     strcpy(students[*count].name, buffer);
+
 
     printf("Enter grade: ");
     fgets(grade_buffer, GRADE_BUFFER_SZ, stdin);
