@@ -5,7 +5,7 @@ define RUN_AND_CLEAN
 endef
 
 
-r7: 
+r7: r7.c
 	gcc r7_helper.c r7.c -o r7 -Iinclude
 	./r7
 
