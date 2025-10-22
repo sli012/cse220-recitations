@@ -13,7 +13,7 @@ enum Day
 
 int main()
 {
-    enum Day today = WEDNESDAY;
+    enum Day today = WEDNESDAY;  //if set is equal to 2, the first printf will still be It's wednesday!
 
     if (today == WEDNESDAY)
     {

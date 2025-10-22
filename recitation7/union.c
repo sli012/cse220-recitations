@@ -4,7 +4,7 @@ union Data
 {
     int i;
     float f;
-    char str[20];
+    char str[20]; //biggest
 };
 
 int main()
@@ -24,7 +24,7 @@ int main()
     sprintf(data.str, "Hello");
     printf("data.str = %s\n", data.str);
 
-    printf("data.i = %d\n", data.i);
+    printf("data.i = %d\n", data.i); //prints integer ascii representation of hello
 
     return 0;
 }

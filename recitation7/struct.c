@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
-struct Person
+struct Person //one way to declare struct
 {
     char name[50];
-    int age;
+    int age; 
 }; // What is the size of this struct?
 
-typedef struct
+typedef struct //2nd way
 {
     char name[50];
     int age;
@@ -15,8 +15,8 @@ typedef struct
 
 int main()
 {
-    struct Person p1;
-    struct Person p2;
+    Person p1; //uses first way
+    Person p2; //uses second way so you don't need struct keyword when declaring
 
     strcpy(p1.name, "Alice");
     p1.age = 30;
@@ -25,11 +25,11 @@ int main()
 
     printf("Name: %s\nAge: %d\n", p1.name, p1.age);
     printf("Name: %s\nAge: %d\n", p2.name, p2.age);
-    printf("%p == %p\n", &p1, &p2);
+    printf("%p == %p\n", &p1, &p2); //adresses are different 
 
     p2.age = 20;
 
-    printf("Age of P1 after changing P2.age: %d\n", p1.age);
+    printf("Age of P1 after changing P2.age: %d\n", p1.age); //p1 is still the same becuase you are not changing p1
 
     // To reference p1 and make changes presist
 
@@ -41,3 +41,21 @@ int main()
 
     return 0;
 }
+
+/**
+byte order goes from biggest elem to least
+
+Struct a{
+ int ;   int is biggest, struct order: [4 " " " | i i i i | s s " "] 12 total bytes
+ short;       padding: " " " " and there are 4 bytes each  so the first 4 bytes don't look like an int and to not cross byte border
+                short take up 2 bytes and char takes up 1 bytes
+ declaring integer after character
+}
+
+struct b{
+    [i i i i | s s c "] 8 bytes this is better
+
+
+}
+
+*/

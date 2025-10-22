@@ -75,6 +75,21 @@ void addStudent(Student *students, int *count)
         printf("Gradebook is full! Cannot add more students.\n");
         return;
     }
+    char buffer[MAX_NAME_LEN];
+    char buffer2[CHOICE_BUFFER_SZ];
+
+    printf("Student name: ");
+    fgets(buffer, MAX_NAME_LEN, stdin);
+    buffer[strcspn(buffer, "\n" = 0)];
+
+    students[*count].name = malloc(strlen(buffer) + 1); //malloc at end to store students
+    strcopy(students[*count].name, buffer);
+
+    printf("Grade: ");
+    fgets(buffer2, CHOICE_BUFFER_SZ, stdin); 
+    students[*count].grade * atof(buffer2);
+    (*count)++;
+    print("Saved student");
 }
 
 // TODO: implement
@@ -85,4 +100,25 @@ void removeStudent(Student *students, int *count)
         printf("\nNo students to remove.\n");
         return;
     }
+    displayGrades(students, *count);
+
+    char buffer[CHOICE_BUFFER_SZ];
+    int index;
+    printf("Student to remove: ");
+    fgets(buffer, CHOICE_BUFFER_SZ, stdin);
+    index = atoi(buffer);
+
+    if(index < 0 || index >= *count){
+        print("invalid index");
+        return;
+    }
+
+    free(students[index].name);
+    for(int i = 0; i < *count; i++){
+        students[i] = students[i + 1];
+    }
+    (*count)++;
+    print("student removed");
+
+    
 }
