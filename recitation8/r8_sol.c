@@ -8,6 +8,8 @@ Student *add_student(Student **head, char *name, float grade)
 {
     // Allocate memory for new student
     Student *new_student = (Student *)malloc(sizeof(Student));
+    new_student->next_student =NULL; // YOU SHOULD PROBABLY NULL this so some garbage value won't be here for the first node.
+
     if (new_student == NULL)
     {
         return NULL;
