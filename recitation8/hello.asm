@@ -1,6 +1,6 @@
 
 .data 
-out_string: .asciiz "\nHello, World!\n"
+out_string: .asciiz "Hello, World!\n"
 
 
 .text
