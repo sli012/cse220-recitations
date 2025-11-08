@@ -1,5 +1,5 @@
 .data
-prompt: .asciiz "Enter 5 numbers:\n"
+prompt: .asciiz "Enter 2 numbers:\n"
 result: .asciiz "Sum: "
 
 .text
