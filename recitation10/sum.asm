@@ -4,4 +4,5 @@ arraySize: .word 5
 
 .text
 .globl main
+
 main:
