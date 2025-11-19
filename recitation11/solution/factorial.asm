@@ -17,7 +17,7 @@ main:
 
 factorial:
     # Save return address and argument on the stack
-    addi $sp, $sp, -8   # Allocate space on stack (for $ra and $a0)
+    addi $sp, $sp, -8   # Allocate space on stack (for $ra and $a0) - allocates 8 bytes of memory
     sw $ra, 4($sp)      # Save return address
     sw $a0, 0($sp)      # Save argument (n)
 
