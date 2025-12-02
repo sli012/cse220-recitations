@@ -85,11 +85,11 @@ isPalindrome:
 	
 	# restore registers
 	
-	#lw $ra, 0($sp)
-	#lw $a0, 4($sp)
-	#lw $a1, 8($sp)
-	#addi $sp, $sp, 12
-	#jr $ra
+	lw $ra, 0($sp)
+	lw $a0, 4($sp)
+	lw $a1, 8($sp)
+	addi $sp, $sp, 12
+	jr $ra
 	
 	
 
