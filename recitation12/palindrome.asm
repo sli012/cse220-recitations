@@ -97,10 +97,12 @@ isPalindrome:
 
 base_case1:
 li $v0, 0
+addi $sp, $sp, 12
 jr $ra
 
 base_case2:
 li $v0, 1
+addi $sp, $sp, 12
 jr $ra
 
 
